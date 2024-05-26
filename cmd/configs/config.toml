@@ -1,0 +1,6 @@
+[log]
+level = "info"
+
+[servers]
+port = "9000"
+hostname = "localhost"
