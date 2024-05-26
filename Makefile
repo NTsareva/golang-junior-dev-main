@@ -6,7 +6,7 @@ build:
 	go build ./cmd/exchanges
 
 test:
-	go test -v -cover ./...
+	go test -v ./...
 
 docker-build:
 	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) .

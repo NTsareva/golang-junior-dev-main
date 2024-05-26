@@ -35,7 +35,7 @@ func main() {
 	logrus.Infof(fmt.Sprintf("%s:%s", cfg.Server.Hostname, cfg.Server.Port))
 
 	mux := http.NewServeMux()
-	mux.Handle("/", middleware.LogginMiddleware(http.HandlerFunc(handlers.ExchangeHandler)))
+	mux.Handle("/exchange", middleware.LogginMiddleware(http.HandlerFunc(handlers.ExchangeHandler)))
 
 	server := &http.Server{
 		Addr:    fmt.Sprintf("%s:%s", cfg.Server.Hostname, cfg.Server.Port),
