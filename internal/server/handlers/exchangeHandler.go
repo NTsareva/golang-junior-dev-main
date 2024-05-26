@@ -6,7 +6,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/cmd/internal/server/exchange"
+	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/internal/server/exchange"
 )
 
 // ExchangeHandler(w http.ResponseWriter, r *http.Request)  handles the exchange function from processor via exchange package

@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: golang-junior-dev:latest
+    ports:
+      - "9000:9000"
+    environment:
+      - PORT=9000

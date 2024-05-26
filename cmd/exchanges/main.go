@@ -12,12 +12,12 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/cmd/internal/config"
-	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/cmd/internal/server/handlers"
-	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/cmd/internal/server/middleware"
+	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/internal/config"
+	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/internal/server/handlers"
+	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/internal/server/middleware"
 )
 
-var configPath = flag.String("config", "cmd/configs/config.toml", "Path to config file")
+var configPath = flag.String("config", "./configs/config.toml", "Path to config file")
 
 func main() {
 	cfg, err := config.LoadConfig(*configPath)

@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/cmd/internal/server/processor"
+	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/internal/server/processor"
 )
 
 type Input struct {
