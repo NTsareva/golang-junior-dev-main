@@ -4,10 +4,11 @@ import (
 	"context"
 	"errors"
 	"reflect"
-	"sort"
 	"sync"
 	"testing"
 	"time"
+
+	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/internal/server/utils/twodsliceutils"
 )
 
 func TestProcess(t *testing.T) {
@@ -101,14 +102,14 @@ func TestProcess(t *testing.T) {
 				result = append(result, combinetion)
 			}
 
-			sort2D(result)
-			sort2D(test.expected)
+			twodsliceutils.Sort2D(result)
+			twodsliceutils.Sort2D(test.expected)
 
 			if test.byTimeout && !errors.Is(ctx.Err(), context.DeadlineExceeded) {
 				t.Errorf("expected deadline but got %v", ctx.Err())
 			}
 
-			if is2DSliceEmpty(test.expected) && is2DSliceEmpty(result) {
+			if twodsliceutils.Is2DSliceEmpty(test.expected) && twodsliceutils.Is2DSliceEmpty(result) {
 				return
 			}
 
@@ -117,33 +118,4 @@ func TestProcess(t *testing.T) {
 			}
 		})
 	}
-}
-
-func sort2D(slices [][]int) {
-	for _, s := range slices {
-		sort.Ints(s)
-	}
-
-	sort.Slice(slices, func(i, j int) bool {
-		for k := 0; k < len(slices[i]) && k < len(slices[j]); k++ {
-			if slices[i][k] != slices[j][k] {
-				return slices[i][k] < slices[j][k]
-			}
-		}
-
-		return len(slices[i]) < len(slices[j])
-	})
-}
-
-func is2DSliceEmpty(slice [][]int) bool {
-	if slice == nil || len(slice) == 0 {
-		return true
-	}
-
-	for _, innerSlice := range slice {
-		if len(innerSlice) != 0 {
-			return false
-		}
-	}
-	return true
 }

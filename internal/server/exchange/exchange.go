@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/internal/server/processor"
+	"gitlab.com/llcmediatel/recruiting/golang-junior-dev/internal/server/utils/twodsliceutils"
 )
 
 type Input struct {
@@ -45,5 +46,8 @@ func PresentResults(input Input) (Output, error) {
 	if errors.Is(ctx.Err(), context.DeadlineExceeded) {
 		return Output{}, ctx.Err()
 	}
+
+	twodsliceutils.Sort2D(results)
+
 	return Output{Exchange: results}, nil
 }

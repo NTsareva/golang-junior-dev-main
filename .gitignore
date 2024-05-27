@@ -1,5 +1,6 @@
 .DS_Store
 cmd/.DS_Store
+exchanges
 
 .idea/
 .env
