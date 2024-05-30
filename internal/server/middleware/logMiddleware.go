@@ -20,6 +20,7 @@ func newResponseLogger(w http.ResponseWriter) *ResponseLogger {
 
 func (lrw *ResponseLogger) WriteHeader(status int) {
 	lrw.status = status
+	lrw.ResponseWriter.WriteHeader(status)
 }
 
 func (lrw *ResponseLogger) Write(b []byte) (int, error) {
